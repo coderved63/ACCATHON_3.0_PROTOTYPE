@@ -16,9 +16,9 @@ app.use(cors({
 }));
 app.use(express.json());
 
-// Routes
-app.use('/api/auth', authRoutes);
-app.use('/api/financials', financialRoutes);
+// Routes (Standard & Root-level for Vercel resilience)
+app.use(['/api/auth', '/auth'], authRoutes);
+app.use(['/api/financials', '/financials'], financialRoutes);
 
 // Root route for Vercel visibility
 app.get('/', (req, res) => {
