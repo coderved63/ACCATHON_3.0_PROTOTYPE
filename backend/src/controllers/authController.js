@@ -4,18 +4,21 @@ const db = require('../db');
 
 exports.signup = async (req, res) => {
     const { email, password } = req.body;
+    console.log(`[AUTH] Signup attempt: ${email}`);
     try {
         const password_hash = await bcrypt.hash(password, 10);
         const result = await db.query(
             'INSERT INTO users (email, password_hash) VALUES ($1, $2) RETURNING id, email',
             [email, password_hash]
         );
+        console.log(`[AUTH] Signup success: ${email}`);
         res.status(201).json({ message: 'User created', user: result.rows[0] });
     } catch (err) {
+        console.error(`[AUTH] Signup error for ${email}:`, err.message);
         if (err.code === '23505') {
             return res.status(400).json({ error: 'Email already exists' });
         }
-        res.status(500).json({ error: err.message });
+        res.status(500).json({ error: `Server Internal Error: ${err.message}` });
     }
 };
 
