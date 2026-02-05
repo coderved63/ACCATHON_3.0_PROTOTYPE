@@ -3,7 +3,10 @@ const path = require('path');
 const { Pool } = require('pg');
 require('dotenv').config({ path: path.join(__dirname, '../../.env') });
 
-const pool = new Pool({ connectionString: process.env.DATABASE_URL });
+const pool = new Pool({
+    connectionString: process.env.DATABASE_URL,
+    ssl: (process.env.DATABASE_URL && process.env.DATABASE_URL.includes('localhost')) ? false : { rejectUnauthorized: false }
+});
 const RAW_DATA_DIR = path.join(__dirname, '../../../database/raw_data');
 
 const CSV_FILES = [
