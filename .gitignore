@@ -37,6 +37,7 @@ database/raw_data/*.csv
 
 # Internal references (Exclude from Git)
 RENDER_DEPLOYMENT.md
+VERCEL_DEPLOYMENT.md
 sharing_guide.md
 docs/DEMO_GUIDE.md
 docs/PRD.md
