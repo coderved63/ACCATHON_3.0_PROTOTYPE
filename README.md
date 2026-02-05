@@ -87,4 +87,4 @@ Open the **Intelligence Bot**. Ask: *"Explain why the WACC is set at 12.5%?"*. T
 ### 📝 Handover Info
 - **Developer**: Team Buglife
 - **Repository**: [coderved63/ACCATHON_3.0_PROTOTYPE](https://github.com/coderved63/ACCATHON_3.0_PROTOTYPE)
-- **Deployment**: [Production Roadmap included in RENDER_DEPLOYMENT.md](./RENDER_DEPLOYMENT.md)
+- **Deployment**: [Vercel Deployment Roadmap](./VERCEL_DEPLOYMENT.md)
